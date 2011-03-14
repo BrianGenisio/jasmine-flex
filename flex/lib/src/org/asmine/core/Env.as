@@ -33,9 +33,11 @@ package org.asmine.core
 		  //};
 		  //jasmine.util.inherit(this.matchersClass, jasmine.Matchers);
 		
-		  jasmine.Matchers.wrapInto_(jasmine.Matchers.prototype, this.matchersClass);
+		  
 		}
 
+		jasmine.Matchers.wrapInto_(jasmine.Matchers.prototype, Matchers);
+		
 		jasmine.Env = Env;
 
 		jasmine.Env.prototype.setTimeout = jasmine.setTimeout;

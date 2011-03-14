@@ -140,7 +140,12 @@ package org.asmine.core
 					for(var j=0; j<suiteResult.failedSpecResults.length; j++) {
 						var failedSpecResult = suiteResult.failedSpecResults[j];
 						var stackTraces = [];
-						for(var k=0; k<failedSpecResult.items_.length; k++) stackTraces.push(dumpStack ? failedSpecResult.items_[k].trace.getStackTrace() : failedSpecResult.items_[k].trace.message);
+						for(var k=0; k<failedSpecResult.items_.length; k++) 
+							stackTraces.push(dumpStack ? 
+								failedSpecResult.items_[k].trace.getStackTrace() : 
+								"message" in failedSpecResult.items_[k].trace ?
+									failedSpecResult.items_[k].trace.message :
+									"no trace");
 						callback(suiteResult.description, failedSpecResult.description, stackTraces);
 					}
 				}

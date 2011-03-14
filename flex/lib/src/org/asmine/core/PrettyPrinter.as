@@ -29,8 +29,8 @@ package org.asmine.core
 		      this.emitScalar('undefined');
 		    } else if (value === null) {
 		      this.emitScalar('null');
-		    } else if (value === jasmine.getGlobal()) {
-		      this.emitScalar('<global>');
+		    //} else if (value === jasmine.getGlobal()) {
+		    //  this.emitScalar('<global>');
 		    } else if (value instanceof jasmine.Matchers.Any) {
 		      this.emitScalar(value.toString());
 		    } else if (typeof value === 'string') {

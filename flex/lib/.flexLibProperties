@@ -4,6 +4,9 @@
     <classEntry path="org.asmine.core.jasmine"/>
     <classEntry path="org.asmine.core.TrivialConsoleReporter"/>
     <classEntry path="org.asmine.core.StringPrettyPrinter"/>
+    <classEntry path="org.asmine.core.global.beforeEach"/>
+    <classEntry path="org.asmine.core.global.afterEach"/>
+    <classEntry path="org.asmine.core.global.xdescribe"/>
   </includeClasses>
   <includeResources/>
   <namespaceManifests/>
