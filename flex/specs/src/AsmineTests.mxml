@@ -17,6 +17,7 @@
 	<fx:Script source="suites/BaseSpec.as" />
 	<fx:Script source="suites/EnvSpec.as" />
 	<fx:Script source="suites/SuiteSpec.as" />
+	<fx:Script source="suites/SpecSpec.as" />
 	
 	<s:applicationComplete>
 		

@@ -12,7 +12,7 @@ package org.asmine.core
 		 * @param {String} description
 		 */
 		//jasmine.Spec = function(env, suite, description) {
-		public function Spec(env, suite, description) 
+		public function Spec(env=null, suite=null, description=null) 
 		{
 		  if (!env) {
 		    throw new Error('jasmine.Env() required');

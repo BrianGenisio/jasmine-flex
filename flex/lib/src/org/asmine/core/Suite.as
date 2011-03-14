@@ -13,7 +13,7 @@ package org.asmine.core
 		 * @param {jasmine.Suite} parentSuite
 		 */
 		//jasmine.Suite = function(env, description, specDefinitions, parentSuite) {
-		public function Suite(env, description, specDefinitions, parentSuite) 
+		public function Suite(env, description, specDefinitions=null, parentSuite=null) 
 		{
 		  var self = this;
 		  self.id = env.nextSuiteId ? env.nextSuiteId() : null;
