@@ -5,11 +5,11 @@ package org.asmine.core
 	{
 		
 		//jasmine.TrivialConsoleReporter = function(print, doneCallback) {
-		public function TrivialConsoleReporter(print=null, doneCallback = null) 
+		public function TrivialConsoleReporter(dumpStack=false, print=null, doneCallback = null) 
 		{
 			//inspired by mhevery's jasmine-node reporter
 			//https://github.com/mhevery/jasmine-node
-			
+			this.dumpStack = false;
 			doneCallback = doneCallback || function(){};
 			print = print || trace;
 			
@@ -27,9 +27,11 @@ package org.asmine.core
 			function started()         { print("Started"); 
 				newline(); }
 			
-			function greenDot()        { print(greenStr(".")); }
-			function redF()            { print(redStr("F")); }
-			function yellowStar()      { print(yellowStr("*")); }
+			var individualResults = "";
+			
+			function greenDot()        { individualResults += greenStr("."); }
+			function redF()            { individualResults += redStr("F"); }
+			function yellowStar()      { individualResults += yellowStr("*"); }
 			
 			function plural(str, count) { return count == 1 ? str : str + "s"; }
 			
@@ -51,6 +53,7 @@ package org.asmine.core
 				newline(); 
 				print(suiteDescription + " " + specDescription); 
 				newline();
+				
 				for(var i=0; i<stackTraces.length; i++) {
 					print(indent(stackTraces[i], 2));
 					newline();
@@ -94,9 +97,12 @@ package org.asmine.core
 			this.reportRunnerStarting = function() {
 				this.runnerStartTime = this.now();
 				started();
+				
 			};
 			
-			this.reportSpecStarting = function() { /* do nothing */ };
+			this.reportSpecStarting = function() { 
+				
+			};
 			
 			this.reportSpecResults = function(spec) {
 				var results = spec.results();
@@ -113,6 +119,9 @@ package org.asmine.core
 			this.suiteResults = [];
 			
 			this.reportSuiteResults = function(suite) {
+				print(individualResults);
+				individualResults = "";
+				
 				var suiteResult = {
 					description: fullSuiteDescription(suite),
 					failedSpecResults: []
@@ -131,7 +140,7 @@ package org.asmine.core
 					for(var j=0; j<suiteResult.failedSpecResults.length; j++) {
 						var failedSpecResult = suiteResult.failedSpecResults[j];
 						var stackTraces = [];
-						for(var k=0; k<failedSpecResult.items_.length; k++) stackTraces.push(failedSpecResult.items_[k].trace.stack);
+						for(var k=0; k<failedSpecResult.items_.length; k++) stackTraces.push(dumpStack ? failedSpecResult.items_[k].trace.getStackTrace() : failedSpecResult.items_[k].trace.message);
 						callback(suiteResult.description, failedSpecResult.description, stackTraces);
 					}
 				}

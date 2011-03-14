@@ -192,7 +192,7 @@ package org.asmine.core
 			 * @returns {Boolean}
 			 */
 			jasmine.isDomNode = function(obj) {
-			  return obj.nodeType > 0;
+			  return "nodeType" in obj;
 			};
 			
 			/**
@@ -417,7 +417,7 @@ package org.asmine.core
 			 * @returns {Boolean}
 			 */
 			jasmine.isSpy = function(putativeSpy) {
-			  return putativeSpy && putativeSpy.isSpy;
+			  return putativeSpy && "isSpy" in putativeSpy;
 			};
 			
 			/**

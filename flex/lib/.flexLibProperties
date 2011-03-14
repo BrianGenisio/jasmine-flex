@@ -3,6 +3,7 @@
   <includeClasses>
     <classEntry path="org.asmine.core.jasmine"/>
     <classEntry path="org.asmine.core.TrivialConsoleReporter"/>
+    <classEntry path="org.asmine.core.StringPrettyPrinter"/>
   </includeClasses>
   <includeResources/>
   <namespaceManifests/>

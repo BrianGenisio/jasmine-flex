@@ -28,9 +28,9 @@ package org.asmine.core
 		  this.equalityTesters_ = [];
 		
 		  // wrap matchers
-		  this.matchersClass = function() {
-		    return jasmine.Matchers.apply(this, arguments);
-		  };
+		  this.matchersClass = Matchers;// function() {
+		    //return jasmine.Matchers.apply(this, arguments);
+		  //};
 		  //jasmine.util.inherit(this.matchersClass, jasmine.Matchers);
 		
 		  jasmine.Matchers.wrapInto_(jasmine.Matchers.prototype, this.matchersClass);

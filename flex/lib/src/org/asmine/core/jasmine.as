@@ -11,6 +11,7 @@ package org.asmine.core
 	jasmine.Spec = Spec;
 	jasmine.NestedResults = NestedResults;
 	jasmine.Block = Block;
+	jasmine.StringPrettyPrinter = StringPrettyPrinter;
 	new util();
 	jasmine.version_= {
 		"major": 1,

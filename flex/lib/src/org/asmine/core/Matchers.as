@@ -10,7 +10,7 @@ package org.asmine.core
 		 * @param {jasmine.Spec} spec
 		 */
 		//jasmine.Matchers = function(env, actual, spec, opt_isNot) {
-		public function Matchers(env, actual, spec, opt_isNot)
+		public function Matchers(env, actual, spec, opt_isNot = null)
 		{
 		  this.env = env;
 		  this.actual = actual;
