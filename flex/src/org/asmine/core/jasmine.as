@@ -1,0 +1,22 @@
+package org.asmine.core
+{
+	public const jasmine = new Base().jasmine;
+	jasmine.Queue = Queue;
+	jasmine.Runner = Runner;
+	jasmine.Reporter = Reporter;
+	jasmine.MultiReporter = MultiReporter;
+	jasmine.Matchers = Matchers;
+	jasmine.Env = Env;
+	jasmine.Suite = Suite;
+	jasmine.Spec = Spec;
+	jasmine.NestedResults = NestedResults;
+	jasmine.Block = Block;
+	new util();
+	jasmine.version_= {
+		"major": 1,
+		"minor": 0,
+		"build": 2,
+		"revision": 1299565706
+	};
+	
+}
