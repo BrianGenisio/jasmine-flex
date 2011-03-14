@@ -12,7 +12,9 @@ package org.asmine.core
 	jasmine.NestedResults = NestedResults;
 	jasmine.Block = Block;
 	jasmine.StringPrettyPrinter = StringPrettyPrinter;
+	jasmine.FakeTimer = FakeTimer;
 	new util();
+	new Clock();
 	jasmine.version_= {
 		"major": 1,
 		"minor": 0,

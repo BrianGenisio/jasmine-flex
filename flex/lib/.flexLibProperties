@@ -7,6 +7,7 @@
     <classEntry path="org.asmine.core.global.beforeEach"/>
     <classEntry path="org.asmine.core.global.afterEach"/>
     <classEntry path="org.asmine.core.global.xdescribe"/>
+    <classEntry path="org.asmine.core.Clock"/>
   </includeClasses>
   <includeResources/>
   <namespaceManifests/>
