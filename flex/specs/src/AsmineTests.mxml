@@ -25,8 +25,9 @@
 	<fx:Script source="suites/ReporterSpec.as" />
 	<fx:Script source="suites/SpySpec.as" />
 	<fx:Script source="suites/UtilSpec.as" />
-	<!--<fx:Script source="suites/ExceptionsSpec.as" />-->
-	<!--<fx:Script source="suites/SpecRunningSpec.as" /> -->
+	<fx:Script source="suites/ExceptionsSpec.as" />
+	<fx:Script source="suites/SpecRunningSpec.as" />
+	
 	<!--<fx:Script source="suites/PrettyPrintSpec.as" /> -->
 	<!--<fx:Script source="suites/TrivialConsoleReporterSpec.as" /> -->
 	<!--<fx:Script source="suites/TrivialReporterSpec.as" /> -->

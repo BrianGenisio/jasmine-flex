@@ -27,23 +27,23 @@ package org.asmine.core
 		
 		jasmine.util.formatException = function(e) {
 		  var lineNumber;
-		  if (e.line) {
+		  if ("line" in e) {
 		    lineNumber = e.line;
 		  }
-		  else if (e.lineNumber) {
+		  else if ("lineNumber" in e) {
 		    lineNumber = e.lineNumber;
 		  }
 		
 		  var file;
 		
-		  if (e.sourceURL) {
+		  if ("sourceURL" in e) {
 		    file = e.sourceURL;
 		  }
-		  else if (e.fileName) {
+		  else if ("fileName" in e) {
 		    file = e.fileName;
 		  }
 		
-		  var message = (e.name && e.message) ? (e.name + ': ' + e.message) : e.toString();
+		  var message = ("name" in e && "message" in e) ? (e.name + ': ' + e.message) : e.toString();
 		
 		  if (file && lineNumber) {
 		    message += ' in ' + file + ' (line ' + lineNumber + ')';
