@@ -14,4 +14,10 @@ describe("base.js", function() {
       expect(jasmine.getEnv().currentSpec.log).toHaveBeenCalledWith(1, 2, 3);
     });
   });
+  
+  describe("jasmine.getGlobal", function() {
+	  it("should return the global object", function() {
+		  expect(jasmine.getGlobal()).toBe(jasmine.getGlobal());
+	  });
+  });
 });

@@ -48,13 +48,13 @@ package org.asmine.core
 			 */
 			jasmine.DEFAULT_TIMEOUT_INTERVAL = 5000;
 			
-			//jasmine.getGlobal = function() {
-			//  function getGlobal() {
-			//    return this;
-			//  }
-			//
-			//  return getGlobal();
-			//};
+			jasmine.getGlobal = function() {
+			  function getGlobal() {
+			    return this;
+			  }
+			
+			  return getGlobal();
+			};
 			
 			/**
 			 * Allows for bound functions to be compared.  Internal use only.
