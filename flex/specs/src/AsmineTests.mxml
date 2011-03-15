@@ -9,10 +9,6 @@
 			import org.asmine.core.jasmine;
 		]]>
 	</fx:Script>
-	<fx:Declarations>
-		<!-- Place non-visual elements (e.g., services, value objects) here -->
-	</fx:Declarations>
-	
 	
 	<fx:Script source="suites/BaseSpec.as" />
 	<fx:Script source="suites/EnvSpec.as" />
@@ -20,6 +16,7 @@
 	<fx:Script source="suites/SpecSpec.as" /> 
 	<fx:Script source="suites/MatchersSpec.as" />
 	<fx:Script source="suites/QueueSpec.as" />
+	<fx:Script source="suites/RunnerSpec.as" />
 	
 	<s:applicationComplete>
 		

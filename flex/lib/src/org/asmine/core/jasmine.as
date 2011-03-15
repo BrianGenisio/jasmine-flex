@@ -13,6 +13,8 @@ package org.asmine.core
 	jasmine.Block = Block;
 	jasmine.StringPrettyPrinter = StringPrettyPrinter;
 	jasmine.FakeTimer = FakeTimer;
+	jasmine.WaitsBlock = WaitsBlock;
+	jasmine.WaitsForBlock = WaitsForBlock;
 	new util();
 	new Clock();
 	jasmine.version_= {
