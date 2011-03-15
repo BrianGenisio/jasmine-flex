@@ -20,7 +20,7 @@ package org.asmine.core
 		};
 
 		public static function apply(thisObject, args) {
-			return new Matchers(args[0], args[1], args[2], args.lenght >= 4 ? args[3] : null);
+			return new Matchers(args[0], args[1], args[2], args.length >= 4 ? args[3] : null);
 		}
 		
 		jasmine.Matchers = Matchers;
@@ -321,14 +321,14 @@ package org.asmine.core
 		    exception = e;
 		  }
 		  if (exception) {
-		    result = (expected === jasmine.undefined || this.env.equals_(exception.message || exception, expected.message || expected));
+		    result = (expected === jasmine.undefined || this.env.equals_(exception.message || exception, "message" in expected ? expected.message : expected));
 		  }
 		
 		  var not = this.isNot ? "not " : "";
 		
 		  this.message = function() {
-		    if (exception && (expected === jasmine.undefined || !this.env.equals_(exception.message || exception, expected.message || expected))) {
-		      return ["Expected function " + not + "to throw", expected ? expected.message || expected : "an exception", ", but it threw", exception.message || exception].join(' ');
+		    if (exception && (expected === jasmine.undefined || !this.env.equals_(exception.message || exception, "message" in expected ? expected.message : expected))) {
+		      return ["Expected function " + not + "to throw", expected ? ("message" in expected ? expected.message : expected) : "an exception", ", but it threw", exception.message || exception].join(' ');
 		    } else {
 		      return "Expected function to throw an exception.";
 		    }

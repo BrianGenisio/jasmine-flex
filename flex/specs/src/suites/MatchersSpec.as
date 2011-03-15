@@ -77,13 +77,6 @@ describe("jasmine.Matchers", function() {
     expect((match(parseInt('5', 10)).toNotEqual(5))).toFail();
   });
   
-  it("toEqual with DOM nodes", function() {
-    var nodeA = document.createElement('div');
-    var nodeB = document.createElement('div');
-    expect((match(nodeA).toEqual(nodeA))).toPass();
-    expect((match(nodeA).toEqual(nodeB))).toFail();
-  });
-
   it("toEqual to build an Expectation Result", function() {
     var actual = 'a';
     var matcher = match(actual);
@@ -483,7 +476,7 @@ describe("jasmine.Matchers", function() {
 
       it("should match any exception", function() {
         expect(match(throwingFn).toThrow()).toPass();
-      });
+      }); 
 
       it("should match exceptions specified by message", function() {
         expect(match(throwingFn).toThrow("Fake Error")).toPass();
@@ -791,5 +784,5 @@ describe("jasmine.Matchers", function() {
     it("should return null, for future-proofing, since we might eventually allow matcher chaining", function() {
       expect(match(true).toBe(true)).toBeUndefined();
     });
-  });
+  }); 
 });

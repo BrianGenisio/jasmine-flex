@@ -141,7 +141,10 @@ package org.asmine.core
 		jasmine.Spec.prototype.addMatchers = function(matchersPrototype) {
 		  var parent = this.getMatchersClass_();
 		  var newMatchersClass = function() {
-		    parent.apply(this, arguments);
+		    var matcher = parent.apply(this, arguments);
+			for(var funcName in matchersPrototype)
+				matcher[funcName] = jasmine.Matchers.matcherFn_(funcName, matchersPrototype[funcName]);
+			return matcher;
 		  };
 		  jasmine.util.inherit(newMatchersClass, parent);
 		  jasmine.Matchers.wrapInto_(matchersPrototype, newMatchersClass);
