@@ -12,7 +12,7 @@ package org.asmine.core
 		 * @param {jasmine.Spec} spec
 		 */
 		//jasmine.Block = function(env, func, spec) {
-		public function Block(env, func, spec)
+		public function Block(env, func, spec=null)
 		{
 		  this.env = env;
 		  this.func = func;

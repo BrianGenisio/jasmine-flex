@@ -19,6 +19,7 @@
 	<fx:Script source="suites/SuiteSpec.as" />
 	<fx:Script source="suites/SpecSpec.as" /> 
 	<fx:Script source="suites/MatchersSpec.as" />
+	<fx:Script source="suites/QueueSpec.as" />
 	
 	<s:applicationComplete>
 		
