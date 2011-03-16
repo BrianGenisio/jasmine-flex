@@ -15,6 +15,7 @@ package org.asmine.core
 	jasmine.FakeTimer = FakeTimer;
 	jasmine.WaitsBlock = WaitsBlock;
 	jasmine.WaitsForBlock = WaitsForBlock;
+	jasmine.ApiReporter = ApiReporter;
 	new util();
 	new Clock();
 	jasmine.version_= {

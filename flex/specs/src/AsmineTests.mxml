@@ -28,9 +28,10 @@
 	<fx:Script source="suites/ExceptionsSpec.as" />
 	<fx:Script source="suites/SpecRunningSpec.as" />
 	<fx:Script source="suites/PrettyPrintSpec.as" />
+	<fx:Script source="suites/JsApiReporterSpec.as" />
 	<!--<fx:Script source="suites/TrivialReporterSpec.as" /> -->
 	<!--<fx:Script source="suites/TrivialConsoleReporterSpec.as" /> -->
-	<!--<fx:Script source="suites/JsApiReporterSpec.as" /> -->
+	
 	
 	<s:applicationComplete>
 		
