@@ -4,34 +4,33 @@ package org.asmine.core
 	public dynamic class TrivialConsoleReporter extends Reporter
 	{
 		
-		//jasmine.TrivialConsoleReporter = function(print, doneCallback) {
-		public function TrivialConsoleReporter(dumpStack=false, print=null, doneCallback = null) 
+		public function TrivialConsoleReporter(print=null, doneCallback = null, colorized=true, dumpStack=false) 
 		{
-			//inspired by mhevery's jasmine-node reporter
-			//https://github.com/mhevery/jasmine-node
-			this.dumpStack = false;
+			this.dumpStack = dumpStack;
 			doneCallback = doneCallback || function(){};
-			print = print || trace;
+			
+			var esc = String.fromCharCode(27);
 			
 			var defaultColumnsPerLine = 50,
-				//ansi = { green: '\033[32m', red: '\033[31m', yellow: '\033[33m', none: '\033[0m' },
+				ansi = { green:  esc + '[32m', red: esc+'[31m', yellow: esc+'[33m', none: esc+'[0m' },
 				language = { spec:"spec", expectation:"expectation", failure:"failure" };
 			
-			function coloredStr(color, str) { return str; } // ansi[color] + str + ansi.none; }
+			function coloredStr(color, str) { 
+				return colorized ? ansi[color] + str + ansi.none : str; 
+			}
 			
 			function greenStr(str)  { return coloredStr("green", str); }
 			function redStr(str)    { return coloredStr("red", str); }
 			function yellowStr(str) { return coloredStr("yellow", str); }
 			
-			function newline()         {  }
+			function newline() { print("\n"); }
+			
 			function started()         { print("Started"); 
 				newline(); }
 			
-			var individualResults = "";
-			
-			function greenDot()        { individualResults += greenStr("."); }
-			function redF()            { individualResults += redStr("F"); }
-			function yellowStar()      { individualResults += yellowStr("*"); }
+			function greenDot()        { print(greenStr(".")); }
+			function redF()            { print(redStr("F")); }
+			function yellowStar()      { print(yellowStr("*")); }
 			
 			function plural(str, count) { return count == 1 ? str : str + "s"; }
 			
@@ -40,8 +39,7 @@ package org.asmine.core
 				return arr;
 			}
 			
-			function indent(str, spaces) { 
-				var lines = str.split("\n");
+			function indent(str, spaces) { var lines = str.split("\n");
 				var newArr = [];
 				for(var i=0; i<lines.length; i++) {
 					newArr.push(repeat(" ", spaces).join("") + lines[i]);
@@ -53,7 +51,6 @@ package org.asmine.core
 				newline(); 
 				print(suiteDescription + " " + specDescription); 
 				newline();
-				
 				for(var i=0; i<stackTraces.length; i++) {
 					print(indent(stackTraces[i], 2));
 					newline();
@@ -97,12 +94,9 @@ package org.asmine.core
 			this.reportRunnerStarting = function() {
 				this.runnerStartTime = this.now();
 				started();
-				
 			};
 			
-			this.reportSpecStarting = function() { 
-				
-			};
+			this.reportSpecStarting = function() { /* do nothing */ };
 			
 			this.reportSpecResults = function(spec) {
 				var results = spec.results();
@@ -119,9 +113,6 @@ package org.asmine.core
 			this.suiteResults = [];
 			
 			this.reportSuiteResults = function(suite) {
-				print(individualResults);
-				individualResults = "";
-				
 				var suiteResult = {
 					description: fullSuiteDescription(suite),
 					failedSpecResults: []
@@ -134,18 +125,33 @@ package org.asmine.core
 				this.suiteResults.push(suiteResult);
 			};
 			
+			function getStackTrace(failedSpecResult, k) {
+				
+				var trace = failedSpecResult.items_[k].trace;
+				
+				if(dumpStack)
+					return trace.getStackTrace();
+				
+				if("stack" in trace)
+					return trace.stack;
+				
+				if("message" in trace)
+					return trace.message;
+				
+				return "no trace found"
+			}
+			
 			function eachSpecFailure(suiteResults, callback) {
 				for(var i=0; i<suiteResults.length; i++) {
 					var suiteResult = suiteResults[i];
 					for(var j=0; j<suiteResult.failedSpecResults.length; j++) {
 						var failedSpecResult = suiteResult.failedSpecResults[j];
 						var stackTraces = [];
-						for(var k=0; k<failedSpecResult.items_.length; k++) 
-							stackTraces.push(dumpStack ? 
-								failedSpecResult.items_[k].trace.getStackTrace() : 
-								"message" in failedSpecResult.items_[k].trace ?
-									failedSpecResult.items_[k].trace.message :
-									"no trace");
+						
+						for(var k=0; k<failedSpecResult.items_.length; k++) {
+							stackTraces.push(getStackTrace(failedSpecResult, k));
+						}
+
 						callback(suiteResult.description, failedSpecResult.description, stackTraces);
 					}
 				}

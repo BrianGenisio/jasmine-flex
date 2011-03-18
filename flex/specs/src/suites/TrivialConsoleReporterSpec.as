@@ -1,13 +1,14 @@
 describe("TrivialConsoleReporter", function() {
   
-
+  var esc = String.fromCharCode(27);;
+	
   //keep these literal.  otherwise the test loses value as a test.
-  function green(str)  { return '\033[32m' + str + '\033[0m'; }
-  function red(str)    { return '\033[31m' + str + '\033[0m'; }
-  function yellow(str) { return '\033[33m' + str + '\033[0m'; }
+  function green(str)  { return esc+'[32m' + str + esc+'[0m'; }
+  function red(str)    { return esc+'[31m' + str + esc+'[0m'; }
+  function yellow(str) { return esc+'[33m' + str + esc+'[0m'; }
   
-  function prefixGreen(str)  { return '\033[32m' + str; }
-  function prefixRed(str)    { return '\033[31m' + str; }
+  function prefixGreen(str)  { return esc+'[32m' + str; }
+  function prefixRed(str)    { return esc+'[31m' + str; }
   
   var newline = "\n";
   
@@ -38,14 +39,13 @@ describe("TrivialConsoleReporter", function() {
   }
   
   beforeEach(function() {
-    this.out = (function(){
-      var output = "";
-      return {
+    
+	  var output = "";
+	  this.out = {
         print:function(str) {output += str;},
         getOutput:function(){return output;},
         clear: function(){output = "";}
       };
-    })();
 
     this.done = false
     var self = this

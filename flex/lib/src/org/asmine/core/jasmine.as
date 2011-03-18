@@ -16,6 +16,7 @@ package org.asmine.core
 	jasmine.WaitsBlock = WaitsBlock;
 	jasmine.WaitsForBlock = WaitsForBlock;
 	jasmine.ApiReporter = ApiReporter;
+	jasmine.TrivialConsoleReporter = TrivialConsoleReporter;
 	new util();
 	new Clock();
 	jasmine.version_= {

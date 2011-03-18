@@ -9,6 +9,7 @@
     <classEntry path="org.asmine.core.global.xdescribe"/>
     <classEntry path="org.asmine.core.Clock"/>
     <classEntry path="org.asmine.core.global.xit"/>
+    <classEntry path="org.asmine.core.TrivialTraceReporter"/>
   </includeClasses>
   <includeResources/>
   <namespaceManifests/>
