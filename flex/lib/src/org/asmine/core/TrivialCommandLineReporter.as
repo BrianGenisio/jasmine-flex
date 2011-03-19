@@ -1,10 +1,9 @@
-package 
+package org.asmine.core 
 {
 	import flash.filesystem.File;
 	import flash.filesystem.FileMode;
 	import flash.filesystem.FileStream;
 	
-	import org.asmine.core.TrivialConsoleReporter;
 
 	public dynamic class TrivialCommandLineReporter extends TrivialConsoleReporter
 	{
@@ -14,7 +13,7 @@ package
 		{
 			stdout.open(new File("/dev/fd/1"), FileMode.APPEND);
 			
-			var print = function(str) { stdout.writeMultiByte(str, "us-ascii")};
+			var print = function(str) { stdout.writeMultiByte(str, "us-ascii")}; 
 			
 			var completed = function() 
 			{ 
