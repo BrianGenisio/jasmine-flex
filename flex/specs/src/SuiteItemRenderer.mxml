@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<s:ItemRenderer xmlns:fx="http://ns.adobe.com/mxml/2009" 
+				xmlns:s="library://ns.adobe.com/flex/spark" 
+				xmlns:mx="library://ns.adobe.com/flex/mx" 
+				autoDrawBackground="false" width="100%">
+	
+	<fx:Script>
+		<![CDATA[
+			import org.asmine.core.Spec;
+			import org.asmine.core.Suite;
+			
+			private function getBackgroundColor(result) : uint {
+				if(data.isSuite) {
+					if(result == "passed")
+						return 0xddffdd;
+					else if(result == "failed")
+						return 0xffdddd;
+					
+					return 0xDDDDDD;
+				}
+				else if(data.isSpec) {
+					if(result == "passed")
+						return 0xbbffbb;
+					else if(result == "failed")
+						return 0xffbbbb;
+					
+					return 0xBBBBBB;
+				}
+				
+				return 0xFFFFFF;
+			}
+			
+			private function getBorderColor(result) : uint {
+				if(data.isSpec) {
+					if(result == "passed")
+						return 0x00FF00;
+					else if(result == "failed")
+						return 0xFF0000;
+				}
+				
+				return 0x888888;
+			}
+			
+		]]>
+	</fx:Script>
+	
+	<s:BorderContainer borderWeight="1" left="10" right="10" width="100%" minHeight="0" borderColor="{getBorderColor(data.result)}" backgroundColor="{getBackgroundColor(data.result)}" bottom="5">
+		
+		<s:VGroup width="100%" top="5" >
+			<s:Group width="100%">
+				<s:Label text="{data.description}" left="5" fontSize="16" />
+				<s:Label text="run" right="5" fontSize="16" />
+			</s:Group>
+			
+			<s:DataGroup width="100%" dataProvider="{data.messages}" >
+				<s:itemRenderer>
+					<fx:Component>
+						<s:ItemRenderer>
+							<s:Label text="     -- {data}" fontSize="16" /> 
+						</s:ItemRenderer>
+					</fx:Component>
+				</s:itemRenderer>
+			</s:DataGroup>
+			
+			<s:DataGroup width="100%" itemRenderer="SuiteItemRenderer" dataProvider="{data.children}"  >
+				<s:layout>
+					<s:VerticalLayout />
+				</s:layout>
+			</s:DataGroup>
+		</s:VGroup>
+		
+	</s:BorderContainer>
+	
+</s:ItemRenderer>
