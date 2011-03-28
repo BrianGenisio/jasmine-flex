@@ -6,8 +6,19 @@
 		<![CDATA[
 			import mx.collections.ArrayList;
 			
+			[Bindable]
 			public var flexReporter:TrivialFlexReporter = new TrivialFlexReporter();
 					
+			
+			private function getBackgroundColor(result) : uint {
+				if(result == "passed")
+					return 0xddffdd;
+				else if(result == "failed")
+					return 0xffdddd;
+				
+				return 0xDDDDDD;
+			}
+			
 		]]>
 	</fx:Script>
 	
@@ -22,7 +33,7 @@
 				</s:Rect>
 				
 				<s:HGroup left="20" bottom="5">
-					<s:Label text="Asmine" textDecoration="underline" fontSize="20" />
+					<s:Label text="Jasmine-Flex" textDecoration="underline" fontSize="20" />
 					<s:Label text="{flexReporter.version}" height="100%" verticalAlign="bottom" />
 				</s:HGroup>
 				
@@ -31,6 +42,19 @@
 					<s:CheckBox label="passed" change="flexReporter.showPassed(passed.selected)" id="passed" />
 					<s:CheckBox label="skipped" enabled="false" />
 				</s:HGroup>
+			</s:Group>
+			
+			<s:Group width="100%">
+				<s:BorderContainer width="100%" left="15" right="10" minHeight="0" borderColor="#808080" backgroundColor="{getBackgroundColor(flexReporter.overallSuccess)}">
+					<s:Group width="100%" height="30">
+						<s:HGroup left="10" height="100%" verticalAlign="bottom" bottom="5">
+							<s:Label text="{flexReporter.resultsMessage}" fontSize="16" />
+							<s:Label text="{flexReporter.endTime}" fontSize="10" />
+						</s:HGroup>
+						
+						<s:Label right="5" text="run all" height="100%" verticalAlign="bottom" bottom="5" />
+					</s:Group>
+				</s:BorderContainer>
 			</s:Group>
 			
 			<s:DataGroup width="100%" height="100%" dataProvider="{flexReporter.suites}" itemRenderer="SuiteItemRenderer">

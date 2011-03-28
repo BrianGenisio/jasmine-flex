@@ -14,6 +14,9 @@ package
 	{
 		public var suites:ArrayList = new ArrayList();
 		public var version:String = jasmine.getEnv().versionString();
+		public var resultsMessage:String = "";
+		public var endTime:String;
+		public var overallSuccess:String;
 		
 		public function TrivialFlexReporter()
 		{
@@ -22,10 +25,34 @@ package
 				started(runner);
 			};
 			
+			this.reportRunnerResults = function(runner:Runner) {
+				
+				var results = runner.results();
+				var specs = runner.specs();
+				
+				var specCount = 0;
+				for (var i = 0; i < specs.length; i++) {
+					if (this.specFilter(specs[i])) {
+						specCount++;
+					}
+				}
+				
+				var message = "" + specCount + " spec" + (specCount == 1 ? "" : "s" ) + ", " + results.failedCount + " failure" + ((results.failedCount == 1) ? "" : "s");
+				message += " in " + ((new Date().getTime() - this.startedAt.getTime()) / 1000) + "s";
+				
+				resultsMessage = message;
+				endTime = "Finished at " + new Date().toString();
+				overallSuccess = results.failedCount == 0 ? "passed" : "failed";
+			}
+			
 			this.reportSpecResults = function(spec:Spec) {
 				var results:ReporterResult = findResult(suites.source, spec.id, false);
 				results.result = spec.results().passed() ? "passed" : "failed";
 				results.show = !spec.results().passed();
+				
+				if(!spec.results().passed())
+					overallSuccess = "failed";
+				
 				for each(var message in spec.results().getItems()) {
 					if(message.type == "log") {
 						results.messages.addItem(message.toString());
@@ -41,10 +68,31 @@ package
 				results.show = !suite.results().passed();
 			}
 				
+			this.specFilter = function(spec) {
+				//var paramMap = {};
+				//var params = this.getLocation().search.substring(1).split('&');
+				//for (var i = 0; i < params.length; i++) {
+				//	var p = params[i].split('=');
+				//	paramMap[decodeURIComponent(p[0])] = decodeURIComponent(p[1]);
+				//}
+				
+				//if (!paramMap.spec) {
+				//	return true;
+				//}
+				//return spec.getFullName().indexOf(paramMap.spec) === 0;
+				return true;
+			};
+				
 		}
 		
 		
 		private function started(runner:Runner) {
+			overallSuccess = "running";
+			resultsMessage = "Running...";
+			endTime = "";
+			
+			this.startedAt = new Date();
+			
 			for each(var suite in runner.suites()) {
 				
 				var reporterResult:ReporterResult = new ReporterResult(suite);

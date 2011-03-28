@@ -37,7 +37,7 @@ describe("Custom Matchers", function() {
     suite.execute();
 
     spec1Matcher.matcherForSuite("expected");
-    expect(spec1Matcher.message).toEqual("xmatcherForSuite: actual: xxx; expected: expected");
+    expect(spec1Matcher.message).toEqual("matcherForSuite: actual: xxx; expected: expected");
     spec1Matcher.matcherForSpec("expected");
     expect(spec1Matcher.message).toEqual("matcherForSpec: actual: xxx; expected: expected");
 
