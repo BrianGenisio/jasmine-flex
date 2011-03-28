@@ -14,7 +14,7 @@ package
 	{
 		public var suites:ArrayList = new ArrayList();
 		public var version:String = jasmine.getEnv().versionString();
-		public var resultsMessage:String = "";
+		public var resultsMessage:String = "Initializing...";
 		public var endTime:String;
 		public var overallSuccess:String;
 		
@@ -91,8 +91,6 @@ package
 			resultsMessage = "Running...";
 			endTime = "";
 			
-			this.startedAt = new Date();
-			
 			for each(var suite in runner.suites()) {
 				
 				var reporterResult:ReporterResult = new ReporterResult(suite);
@@ -109,6 +107,8 @@ package
 					reporterResult.children.addItem(new ReporterResult(spec));
 				}
 			}
+			
+			this.startedAt = new Date();
 		}
 		
 		
