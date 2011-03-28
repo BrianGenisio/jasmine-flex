@@ -9,13 +9,12 @@
 			import org.asmine.core.global.*;
 			import org.asmine.core.jasmine;
 			
-			[Bindable]
-			var flexReporter:TrivialFlexReporter = new TrivialFlexReporter();
 		]]>
 	</fx:Script>
 	
-	<fx:Script source="suites/BaseSpec.as" />
+	<fx:Script source="suites/CustomMatchersSpec.as" />
 	<fx:Script source="suites/EnvSpec.as" />
+	<fx:Script source="suites/BaseSpec.as" />
 	<fx:Script source="suites/SuiteSpec.as" />
 	<fx:Script source="suites/SpecSpec.as" /> 
 	<fx:Script source="suites/MatchersSpec.as" />
@@ -23,7 +22,6 @@
 	<fx:Script source="suites/RunnerSpec.as" />
 	<fx:Script source="suites/WaitsForBlockSpec.as" />
 	<fx:Script source="suites/MultiReporterSpec.as" />
-	<fx:Script source="suites/CustomMatchersSpec.as" />
 	<fx:Script source="suites/ExceptionsSpec.as" />
 	<fx:Script source="suites/NestedResultsSpec.as" />
 	<fx:Script source="suites/ReporterSpec.as" />
@@ -38,10 +36,10 @@
 	
 	<s:applicationComplete>
 		
-		jasmine.getEnv().addReporter(flexReporter);
+		jasmine.getEnv().addReporter(reporterView.flexReporter);
 		jasmine.getEnv().execute();
 		
 	</s:applicationComplete>
 	
-	<local:TrivialFlexReporterView width="100%" height="100%" specs="{flexReporter.suites}" />
+	<local:TrivialFlexReporterView width="100%" height="100%" id="reporterView" />
 </s:Application>

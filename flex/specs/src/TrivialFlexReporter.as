@@ -7,11 +7,13 @@ package
 	import org.asmine.core.Runner;
 	import org.asmine.core.Spec;
 	import org.asmine.core.Suite;
+	import org.asmine.core.jasmine;
 	
 	[Bindable]
 	public dynamic class TrivialFlexReporter extends Reporter
 	{
 		public var suites:ArrayList = new ArrayList();
+		public var version:String = jasmine.getEnv().versionString();
 		
 		public function TrivialFlexReporter()
 		{
@@ -23,11 +25,12 @@ package
 			this.reportSpecResults = function(spec:Spec) {
 				var results:ReporterResult = findResult(suites.source, spec.id, false);
 				results.result = spec.results().passed() ? "passed" : "failed";
+				results.show = !spec.results().passed();
 				for each(var message in spec.results().getItems()) {
 					if(message.type == "log") {
 						results.messages.addItem(message.toString());
 					} else if (message.type == "expect" && !message.passed()) {
-						results.messages.addItem(message.message);
+						results.messages.addItem(message);
 					}
 				}
 			}
@@ -35,9 +38,11 @@ package
 			this.reportSuiteResults = function(suite:Suite) {
 				var results:ReporterResult = findResult(suites.source, suite.id);
 				results.result = suite.results().passed() ? "passed" : "failed";
+				results.show = !suite.results().passed();
 			}
 				
 		}
+		
 		
 		private function started(runner:Runner) {
 			for each(var suite in runner.suites()) {
@@ -73,6 +78,11 @@ package
 			return null;
 		}
 		
+		public function showPassed(show:Boolean):void {
+			for each(var suite:ReporterResult in suites.source) {
+				suite.showPassed(show);
+			}
+		}
 		
 	}
 }

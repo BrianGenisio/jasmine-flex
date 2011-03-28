@@ -6,17 +6,38 @@
 		<![CDATA[
 			import mx.collections.ArrayList;
 			
-			[Bindable]
-			public var specs:ArrayList;
+			public var flexReporter:TrivialFlexReporter = new TrivialFlexReporter();
 					
 		]]>
 	</fx:Script>
 	
 	<s:Scroller width="100%" height="100%">
-		<s:DataGroup width="100%" height="100%" dataProvider="{specs}" itemRenderer="SuiteItemRenderer">
-			<s:layout>
-				<s:VerticalLayout />
-			</s:layout>
-		</s:DataGroup>
+		<s:VGroup width="100%" height="100%" top="10">
+		
+			<s:Group width="100%">
+				<s:Rect width="100%" height="30" left="15" right="10">
+					<s:fill>
+						<s:SolidColor color="#FFEEFF"  />
+					</s:fill>
+				</s:Rect>
+				
+				<s:HGroup left="20" bottom="5">
+					<s:Label text="Asmine" textDecoration="underline" fontSize="20" />
+					<s:Label text="{flexReporter.version}" height="100%" verticalAlign="bottom" />
+				</s:HGroup>
+				
+				<s:HGroup height="100%" verticalAlign="middle" right="15">
+					<s:Label text="Show" />
+					<s:CheckBox label="passed" change="flexReporter.showPassed(passed.selected)" id="passed" />
+					<s:CheckBox label="skipped" enabled="false" />
+				</s:HGroup>
+			</s:Group>
+			
+			<s:DataGroup width="100%" height="100%" dataProvider="{flexReporter.suites}" itemRenderer="SuiteItemRenderer">
+				<s:layout>
+					<s:VerticalLayout gap="2" />
+				</s:layout>
+			</s:DataGroup>
+		</s:VGroup>
 	</s:Scroller>
 </s:Group>
