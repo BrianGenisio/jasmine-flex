@@ -89,7 +89,7 @@
 			</s:Group>
 			
 			<s:Group width="100%">
-				<s:DataGroup width="100%" itemRenderer="SuiteItemRenderer" dataProvider="{data.children}" left="5"  >
+				<s:DataGroup width="100%" itemRenderer="org.asmine.core.flexreporter.SuiteItemRenderer" dataProvider="{data.children}" left="5"  >
 					<s:layout>
 						<s:VerticalLayout gap="1" />
 					</s:layout>

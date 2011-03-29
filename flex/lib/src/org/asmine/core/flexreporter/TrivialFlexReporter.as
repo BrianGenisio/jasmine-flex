@@ -1,4 +1,4 @@
-package
+package org.asmine.core.flexreporter
 {
 	import mx.collections.ArrayCollection;
 	import mx.collections.ArrayList;
