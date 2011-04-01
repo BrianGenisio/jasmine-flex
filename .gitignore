@@ -4,4 +4,5 @@
 site/
 .bundle/
 .pairs
-flex/bin/Asmine.swc
+bin-debug
+flex/lib/bin
