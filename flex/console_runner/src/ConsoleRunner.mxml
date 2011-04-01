@@ -6,8 +6,8 @@
 		<![CDATA[
 			import flash.utils.setTimeout;
 			
-			import org.asmine.core.*;
-			import org.asmine.core.global.*;
+			import org.jasmineflex.*;
+			import org.jasmineflex.global.*;
 		]]>
 	</fx:Script>
 	

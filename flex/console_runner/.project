@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <projectDescription>
-	<name>ConsoleRunner</name>
+	<name>JasmineFlex_ConsoleRunner</name>
 	<comment></comment>
 	<projects>
-		<project>Asmine</project>
+		<project>JasmineFlex</project>
 	</projects>
 	<buildSpec>
 		<buildCommand>
