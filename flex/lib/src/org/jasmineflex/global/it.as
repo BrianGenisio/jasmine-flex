@@ -2,7 +2,7 @@ package org.jasmineflex.global
 {
 	import org.jasmineflex.jasmine;
 
-	public const it = function(desc, func) {
+	public function it(desc:String, func:Function):* {
 		return jasmine.getEnv().it(desc, func);
 	};
 }

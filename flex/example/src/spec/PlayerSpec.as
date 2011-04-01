@@ -1,6 +1,9 @@
+import org.jasmineflex.global.beforeEach;
+import org.jasmineflex.global.it;
+
 describe("Player", function() {
-  var player;
-  var song;
+  var player:Player;
+  var song:Song;
 
   beforeEach(function() {
     player = new Player();

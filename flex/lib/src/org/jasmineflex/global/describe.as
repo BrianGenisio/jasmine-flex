@@ -3,7 +3,7 @@ package org.jasmineflex.global
 {
 	import org.jasmineflex.jasmine;
 
-	public const describe = function(description, specDefinitions) {
+	public function describe(description:String, specDefinitions:Function):* {
 		return jasmine.getEnv().describe(description, specDefinitions);
 	};
 }

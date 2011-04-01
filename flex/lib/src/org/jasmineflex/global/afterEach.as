@@ -2,7 +2,7 @@ package org.jasmineflex.global
 {
 	import org.jasmineflex.jasmine;
 
-	public const afterEach = function(afterEachFunction) {
+	public function afterEach(afterEachFunction:Function):void {
 		jasmine.getEnv().afterEach(afterEachFunction);
 	};
 }

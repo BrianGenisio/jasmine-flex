@@ -4,7 +4,7 @@
 			   xmlns:mx="library://ns.adobe.com/flex/mx" minWidth="955" minHeight="600" xmlns:flexreporter="org.jasmineflex.flexreporter.*">
 	<fx:Script>
 		import org.jasmineflex.*;
-		import org.jasmineflex.global.*;
+		import org.jasmineflex.global.*;	
 	</fx:Script>
 	
 	<fx:Script source="spec/SpecHelper.as" />
