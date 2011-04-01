@@ -6,8 +6,8 @@
 	
 	<fx:Script>
 		<![CDATA[
-			import org.asmine.core.Spec;
-			import org.asmine.core.Suite;
+			import org.jasmineflex.Spec;
+			import org.jasmineflex.Suite;
 			
 			private function getBackgroundColor(result) : uint {
 				if(data.isSuite) {
@@ -89,7 +89,7 @@
 			</s:Group>
 			
 			<s:Group width="100%">
-				<s:DataGroup width="100%" itemRenderer="org.asmine.core.flexreporter.SuiteItemRenderer" dataProvider="{data.children}" left="5"  >
+				<s:DataGroup width="100%" itemRenderer="org.jasmineflex.flexreporter.SuiteItemRenderer" dataProvider="{data.children}" left="5"  >
 					<s:layout>
 						<s:VerticalLayout gap="1" />
 					</s:layout>

@@ -4,7 +4,7 @@
  * @constructor
  */
 
-package org.asmine.core
+package org.jasmineflex
 {
 	public dynamic class Env
 	{

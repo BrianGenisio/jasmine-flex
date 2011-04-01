@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <s:Application xmlns:fx="http://ns.adobe.com/mxml/2009" 
 			   xmlns:s="library://ns.adobe.com/flex/spark" 
-			   xmlns:mx="library://ns.adobe.com/flex/mx" minWidth="955" minHeight="600" xmlns:local="*" xmlns:flexreporter="org.asmine.core.flexreporter.*">
+			   xmlns:mx="library://ns.adobe.com/flex/mx" minWidth="955" minHeight="600" xmlns:local="*" xmlns:flexreporter="org.jasmineflex.flexreporter.*">
 	<fx:Script>
 		<![CDATA[
 			import flash.utils.setTimeout;
 			
-			import org.asmine.core.TrivialConsoleReporter;
-			import org.asmine.core.TrivialTraceReporter;
-			import org.asmine.core.global.*;
-			import org.asmine.core.jasmine;
+			import org.jasmineflex.TrivialConsoleReporter;
+			import org.jasmineflex.TrivialTraceReporter;
+			import org.jasmineflex.global.*;
+			import org.jasmineflex.jasmine;
 			
 		]]>
 	</fx:Script>

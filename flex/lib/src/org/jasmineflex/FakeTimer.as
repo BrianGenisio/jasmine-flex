@@ -1,7 +1,7 @@
 // Mock setTimeout, clearTimeout
 // Contributed by Pivotal Computer Systems, www.pivotalsf.com
 
-package org.asmine.core
+package org.jasmineflex
 {
 	public dynamic class FakeTimer
 	{

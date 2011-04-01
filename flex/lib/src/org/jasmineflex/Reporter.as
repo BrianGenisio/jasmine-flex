@@ -3,7 +3,7 @@
  * @constructor
  */
 //jasmine.Reporter = function() {
-package org.asmine.core
+package org.jasmineflex
 {
 	public dynamic class Reporter
 	{

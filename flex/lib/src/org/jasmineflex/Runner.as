@@ -5,7 +5,7 @@
  * @param {jasmine.Env} env
  */
 //jasmine.Runner = function(env) {
-package org.asmine.core
+package org.jasmineflex
 {
 	public dynamic class Runner
 	{

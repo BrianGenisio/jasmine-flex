@@ -2,7 +2,7 @@
 //jasmine.Queue = function(env) {
 
 
-package org.asmine.core
+package org.jasmineflex
 {
 	public dynamic class Queue
 	{

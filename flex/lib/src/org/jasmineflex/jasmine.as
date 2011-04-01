@@ -1,4 +1,4 @@
-package org.asmine.core
+package org.jasmineflex
 {
 	public const jasmine = new Base().jasmine;
 	jasmine.Queue = Queue;

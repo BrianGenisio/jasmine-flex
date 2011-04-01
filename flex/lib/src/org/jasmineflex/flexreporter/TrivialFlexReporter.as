@@ -1,13 +1,13 @@
-package org.asmine.core.flexreporter
+package org.jasmineflex.flexreporter
 {
 	import mx.collections.ArrayCollection;
 	import mx.collections.ArrayList;
 	
-	import org.asmine.core.Reporter;
-	import org.asmine.core.Runner;
-	import org.asmine.core.Spec;
-	import org.asmine.core.Suite;
-	import org.asmine.core.jasmine;
+	import org.jasmineflex.Reporter;
+	import org.jasmineflex.Runner;
+	import org.jasmineflex.Spec;
+	import org.jasmineflex.Suite;
+	import org.jasmineflex.jasmine;
 	
 	[Bindable]
 	public dynamic class TrivialFlexReporter extends Reporter

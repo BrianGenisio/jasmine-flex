@@ -1,4 +1,4 @@
-package org.asmine.core 
+package org.jasmineflex 
 {
 	import flash.filesystem.File;
 	import flash.filesystem.FileMode;

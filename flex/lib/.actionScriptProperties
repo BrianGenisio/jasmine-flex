@@ -13,7 +13,7 @@
     <sourceAttachmentPath/>
   </compiler>
   <applications>
-    <application path="Asmine.as"/>
+    <application path="JasmineFlex.as"/>
   </applications>
   <modules/>
   <buildCSSFiles/>

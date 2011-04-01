@@ -2,7 +2,7 @@
  * @constructor
  */
 //jasmine.MultiReporter = function() {
-package org.asmine.core
+package org.jasmineflex
 {
 	public dynamic class MultiReporter extends Reporter
 	{

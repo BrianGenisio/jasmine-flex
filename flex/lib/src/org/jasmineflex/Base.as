@@ -1,4 +1,4 @@
-package org.asmine.core
+package org.jasmineflex
 {
 	import flash.utils.clearInterval;
 	import flash.utils.clearTimeout;

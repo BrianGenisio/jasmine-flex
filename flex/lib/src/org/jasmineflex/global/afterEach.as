@@ -1,6 +1,6 @@
-package org.asmine.core.global
+package org.jasmineflex.global
 {
-	import org.asmine.core.jasmine;
+	import org.jasmineflex.jasmine;
 
 	public const afterEach = function(afterEachFunction) {
 		jasmine.getEnv().afterEach(afterEachFunction);

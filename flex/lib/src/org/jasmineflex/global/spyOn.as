@@ -1,6 +1,6 @@
-package org.asmine.core.global
+package org.jasmineflex.global
 {
-	import org.asmine.core.jasmine;
+	import org.jasmineflex.jasmine;
 
 	public const spyOn = function(obj, methodName) {
 		return jasmine.getEnv().currentSpec.spyOn(obj, methodName);

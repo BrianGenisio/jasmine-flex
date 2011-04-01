@@ -1,10 +1,10 @@
-package org.asmine.core.flexreporter
+package org.jasmineflex.flexreporter
 {
 	import mx.binding.utils.BindingUtils;
 	import mx.collections.ArrayList;
 	
-	import org.asmine.core.Spec;
-	import org.asmine.core.Suite;
+	import org.jasmineflex.Spec;
+	import org.jasmineflex.Suite;
 
 	[Bindable]
 	public class ReporterResult

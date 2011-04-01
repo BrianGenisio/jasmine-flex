@@ -6,7 +6,7 @@
 		<![CDATA[
 			import mx.collections.ArrayList;
 			
-			import org.asmine.core.jasmine;
+			import org.jasmineflex.jasmine;
 			
 			[Bindable]
 			public var flexReporter:TrivialFlexReporter = new TrivialFlexReporter();
@@ -71,7 +71,7 @@
 				</s:BorderContainer>
 			</s:Group>
 			
-			<s:DataGroup width="100%" height="100%" dataProvider="{flexReporter.suites}" itemRenderer="org.asmine.core.flexreporter.SuiteItemRenderer">
+			<s:DataGroup width="100%" height="100%" dataProvider="{flexReporter.suites}" itemRenderer="org.jasmineflex.flexreporter.SuiteItemRenderer">
 				<s:layout>
 					<s:VerticalLayout gap="2" />
 				</s:layout>
