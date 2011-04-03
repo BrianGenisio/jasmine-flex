@@ -67,6 +67,9 @@
 			
 			<s:Group width="100%">
 				<s:DataGroup width="100%" dataProvider="{data.messages}" left="30" >
+					<s:layout>
+						<s:VerticalLayout gap="1" />
+					</s:layout>
 					<s:itemRenderer>
 						<fx:Component>
 							<s:ItemRenderer width="100%" autoDrawBackground="false">
