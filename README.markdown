@@ -1,4 +1,4 @@
-[Jasmine-Flex](http://www.github.com/briangenisio/jasmine-flex/)
+<a name="README">Jasmine-Flex</a>
 =======
 **An ActionScript Testing Framework**
 
