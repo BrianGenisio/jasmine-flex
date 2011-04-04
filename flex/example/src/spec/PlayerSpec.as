@@ -1,5 +1,4 @@
-import org.jasmineflex.global.beforeEach;
-import org.jasmineflex.global.it;
+import org.jasmineflex.global.*;
 
 describe("Player", function() {
   var player:Player;
