@@ -4,7 +4,7 @@
 
 Jasmine-Flex is a Behavior Driven Development testing framework for ActionScript3.  It is a port of the original Jasmine project which works for JavasScript. It does not rely on any other Flex testing framework.
 
-Documentation & guides live here: [[http://www.github.com/briangenisio/jasmine-flex/]]
+Documentation & guides live here: [http://www.github.com/briangenisio/jasmine-flex/](http://www.github.com/briangenisio/jasmine-flex/)
 
 ## Support
 
